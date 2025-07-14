@@ -1,6 +1,6 @@
-# 📘 Lesson 03: Scaffold with AppBar and Text
+# 📘 Lesson 04: AppBar with Custom Style and Theme
 
-This branch demonstrates a slightly more structured Flutter app with a `Scaffold` layout and a top `AppBar`.
+This branch demonstrates how to apply custom styling to the `AppBar` title using `TextStyle`, as well as how to define a global font family using `ThemeData`.
 
 ---
 
@@ -10,27 +10,26 @@ This branch demonstrates a slightly more structured Flutter app with a `Scaffold
 
 ---
 
-## 🧱 Widgets Introduced
+## 🧱 Widgets & Features
 
-| Widget     | Purpose                                           |
-|------------|---------------------------------------------------|
-| `MaterialApp` | Sets up the root of the app                     |
-| `Scaffold`    | Provides basic visual layout structure           |
-| `AppBar`      | Displays a top title bar with customization     |
-| `Text`        | Shows simple greeting text inside the body      |
-
----
-
-## 💡 Learning Objectives
-
-- How to use `AppBar` inside a `Scaffold`
-- Centering the title using `centerTitle: true`
-- Setting background color with `.shade` style
-- Combining `AppBar` and `Text` for a full-page layout
+| Feature              | Description                                                  |
+|----------------------|--------------------------------------------------------------|
+| `ThemeData`          | Sets the global font family (`Nunito`)                       |
+| `AppBar`             | Displays a title with custom `TextStyle` (color, weight)     |
+| `Text`               | Shows body content                                           |
+| `Scaffold` + `MaterialApp` | Standard app structure                               |
 
 ---
 
-## 📄 Code Overview
+## 💡 What You Learn
+
+- How to set a global font with `ThemeData`
+- Styling text inside `AppBar` using `TextStyle`
+- Using `.shade` color variations for visual customization
+
+---
+
+## 📄 Code Preview
 
 ```dart
 import 'package:flutter/material.dart';
@@ -45,9 +44,13 @@ class Uygulamam extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: "Nunito"),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Uygulamam'),
+          title: Text(
+            'Uygulamam',
+            style: TextStyle(fontWeight: FontWeight.w300, color: Colors.white),
+          ),
           backgroundColor: Colors.indigo.shade200,
           centerTitle: true,
         ),
