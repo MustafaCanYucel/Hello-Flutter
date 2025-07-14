@@ -16,7 +16,7 @@ This lesson demonstrates how to use the `Stack` widget in Flutter to overlay wid
 
 The following screenshot illustrates the result of this lesson:
 
-![Digital Counter UI](assets/images/zikirmatik.png)
+![Digital Counter UI](assets/screenshots/screenshots.png)
 
 > This image is also used as the background in the actual Flutter app.
 
