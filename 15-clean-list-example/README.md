@@ -1,27 +1,40 @@
-## Null Safety Konusunu öğrendik
+# 15-clean-list-example
 
-Bir değişkenin önüne ? eklersek null alabildiğini belirtmiş oluruz.
+**Commit:** Add clean ListView example using static string list and conditional rendering
 
-Değişkeni çağırıken bize uyarı verecektir. ? eklersek değerini bilmediğimizi söyleriz.
-Eğer ! eklersek değerinin olduğuna %100 eminiz demektir. Bunu Dart'a belirtmiş oluyoruz.
+This branch demonstrates a simple Flutter `ListView.separated` layout using a nullable list and Dart's null safety features.
 
-Çağırdığımız değişken null tipinde geldiğinde farklı bir değer göstermek istiyorsak
-?? kullanabiliriz. Örneğin degisken ?? 'varsayılan değer' gibi
+## Features
 
-Değişkenin değeri null ise onun değerini varsayılan bir değere eşitleyebiliriz.
+* A static list of strings: `["veri 1"]`
+* `null`-safe list definition using `List?`
+* Conditional widget rendering based on whether the list is null
+* Dart null safety operators:
 
-String? degisken;
-degisken ?? 'Varsayılan Değer'
+  * `?` declares a variable as nullable
+  * `!` asserts the value is definitely not null
+  * `??` provides a default value if null
 
-şeklinde.
+## Example Null Safety Logic
 
+```dart
+List? veriler = ['veri 1'];
 
-## Widget içerisinde if else yapısını kullanmayı öğrendik
+if (veriler == null) const Text('veri yok');
+if (veriler != null) Text(veriler![0]);
+veriler == null ? const Text('veri yok') : Text(veriler![0]);
+```
 
-Widgetlar içerisinde bir değişkeni kontrol edip ona göre görünümümüzü ayarlamak istersek
-? ve : işaretlerinden faydalanabiliriz.
-? if anlamına gelir : ise else anlamına gelir.
+## Explanation
 
-veri == null ? Text('veri yok') : Text('veri var')
+* `?` (nullable): `List? veriler;` → means the list may contain `null`
+* `!` (non-null assertion): `veriler![0]` → means "I'm sure it's not null"
+* `??` (default fallback): `veriler ?? ['default']` → provides a fallback if list is null
+* Conditional rendering in widgets using:
 
-Üstteki örnekte verimiz yoksa veri yok yazacak eğer var ise veri var yazacak.
+  * `if (veriler != null) ...`
+  * Ternary operator: `veriler == null ? ... : ...`
+
+## Purpose
+
+This example demonstrates how Flutter handles null safety and conditional rendering in a clean and simple list layout.
